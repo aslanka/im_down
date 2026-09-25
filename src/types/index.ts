@@ -1,5 +1,5 @@
 export type ActivityCategory = 'Golf' | 'Poker' | 'Pickleball' | 'Basketball' | 'Soccer' | 'Other';
-export type Visibility = 'friends' | 'friends_mutuals' | 'selected';
+export type Visibility = 'friends' | 'friends_mutuals' | 'selected' | 'group';
 export type JoinMode = 'instant' | 'approval';
 
 export type User = {
@@ -8,6 +8,14 @@ export type User = {
   username: string;
   initials: string;
   interests: ActivityCategory[];
+};
+
+export type FriendGroup = {
+  id: string;
+  name: string;
+  ownerId: string;
+  memberIds: string[];
+  createdAt: number;
 };
 
 export type Activity = {
@@ -23,6 +31,7 @@ export type Activity = {
   spotsTotal: number;
   spotsFilled: number;
   visibility: Visibility;
+  audienceGroupId?: string;
   joinMode: JoinMode;
   memberIds: string[];
   requestedIds: string[];
