@@ -1,6 +1,7 @@
 export type ActivityCategory = 'Golf' | 'Poker' | 'Pickleball' | 'Basketball' | 'Soccer' | 'Other';
 export type Visibility = 'friends' | 'friends_mutuals' | 'selected' | 'group';
 export type JoinMode = 'instant' | 'approval';
+export type ActivityStatus = 'open' | 'ended';
 
 export type User = {
   id: string;
@@ -36,6 +37,17 @@ export type Activity = {
   memberIds: string[];
   requestedIds: string[];
   description?: string;
+  status?: ActivityStatus;
+  endsAt?: number;
+  endedAt?: number;
+};
+
+export type EventMessage = {
+  id: string;
+  activityId: string;
+  senderId: string;
+  body: string;
+  createdAt: number;
 };
 
 export type AppNotification = {
