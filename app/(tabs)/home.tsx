@@ -5,14 +5,14 @@ import { useApp } from '@/src/context/AppContext';
 import { colors } from '@/src/theme/colors';
 
 export default function HomeScreen() {
-  const { activities, currentUserId, relationshipLabel } = useApp();
+  const { activities, currentUserId, relationshipLabel, canSeeActivity } = useApp();
   const [filter, setFilter] = useState<'All' | 'Friends' | 'Mutuals'>('All');
   const visible = useMemo(() => activities.filter(a => {
-    if (a.hostId === currentUserId) return false;
+    if (a.hostId === currentUserId || !canSeeActivity(a)) return false;
     if (filter === 'All') return true;
     const label = relationshipLabel(a.hostId);
     return filter === 'Friends' ? label === 'Your friend' : label.includes('mutual');
-  }), [activities, currentUserId, filter, relationshipLabel]);
+  }), [activities, currentUserId, filter, relationshipLabel, canSeeActivity]);
   return (
     <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.content}>
