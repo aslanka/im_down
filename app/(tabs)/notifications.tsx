@@ -1,0 +1,5 @@
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useApp } from '@/src/context/AppContext';
+import { colors } from '@/src/theme/colors';
+export default function NotificationsScreen(){const{notifications}=useApp();return <SafeAreaView style={s.safe}><ScrollView contentContainerStyle={s.content}><Text style={s.heading}>Notifications</Text>{notifications.map(n=><View key={n.id} style={s.item}><View style={s.dot}/><View style={{flex:1}}><Text style={s.text}>{n.text}</Text><Text style={s.time}>{n.createdLabel}</Text></View></View>)}</ScrollView></SafeAreaView>}
+const s=StyleSheet.create({safe:{flex:1,backgroundColor:colors.bg},content:{padding:20,paddingBottom:120},heading:{fontSize:32,fontWeight:'900',marginVertical:12,color:colors.text},item:{backgroundColor:'#fff',borderWidth:1,borderColor:colors.line,borderRadius:16,padding:16,marginBottom:10,flexDirection:'row',gap:12},dot:{width:10,height:10,borderRadius:5,backgroundColor:colors.accent,marginTop:5},text:{fontWeight:'700',fontSize:15,color:colors.text},time:{marginTop:5,color:colors.muted,fontSize:13}})

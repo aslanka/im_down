@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "I'm Down",
+    "slug": "im-down-mvp",
+    "version": "1.0.0",
+    "scheme": "imdown",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "plugins": ["expo-router"],
+    "experiments": {"typedRoutes": true}
+  }
+}
