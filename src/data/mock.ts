@@ -1,4 +1,4 @@
-import { Activity, AppNotification, User } from '@/src/types';
+import { Activity, AppNotification, FriendGroup, User } from '@/src/types';
 
 export const CURRENT_USER_ID = 'u1';
 
@@ -13,6 +13,10 @@ export const users: User[] = [
 
 export const friendIds = ['u2', 'u3', 'u5'];
 export const mutualCounts: Record<string, number> = { u4: 5, u6: 3 };
+
+export const starterGroups: FriendGroup[] = [
+  { id: 'g-golf', name: 'Golf Crew', ownerId: CURRENT_USER_ID, memberIds: ['u2', 'u5'], createdAt: 1 },
+];
 
 export const starterActivities: Activity[] = [
   {
